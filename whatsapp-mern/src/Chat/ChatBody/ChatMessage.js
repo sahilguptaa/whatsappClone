@@ -1,16 +1,16 @@
 import React from "react";
 import "./ChatBody.css";
 import classNames from "classnames";
-export const ChatMessage = ({ messageType }) => {
+export const ChatMessage = ({ received, name, message }) => {
   return (
     <p
       className={classNames([
         { chatMessage: true },
-        { chatReceiver: messageType === "SENT" },
+        { chatReceiver: received },
       ])}
     >
-      <span className="chatName">Contact</span>
-      This is a message
+      <span className="chatName">{name}</span>
+      {message}
       <span className="timeStamp">{new Date().toUTCString()}</span>
     </p>
   );
